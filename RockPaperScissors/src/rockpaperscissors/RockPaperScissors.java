@@ -24,93 +24,121 @@ public class RockPaperScissors
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
         int num;
-        
         String userChoice = " ";
         String compChoice = " ";
+        int userWins = 0;
+        int compWins = 0;
         
         System.out.println("Welcome to Rock, Paper, Scissors!!");
-        System.out.print("Please choose R)ock, P)aper or S)cissors. > ");
         
-        userChoice = sc.nextLine();
+        //repeat this section
+        for(int i=0; i<3; i++)
+        {
+            System.out.print("\nPlease choose R)ock, P)aper or S)cissors. > ");
+
+            userChoice = sc.nextLine();
+
+            //Computer choice
+            num = rand.nextInt(3);
+
+            if (num == 0)
+            {
+                compChoice = "R";                    
+            }
+            else if (num == 1)
+            {
+                compChoice = "S";                    
+            }
+            else if (num == 2)
+            {
+                compChoice = "P";                    
+            }
+
+
+
+            //print the computer choice
+
+            if (compChoice.equals("S"))
+            {
+                System.out.println("The computer chose scissors.");
+            }
+            else if (compChoice.equals("P"))
+            {
+                System.out.println("The computer chose paper.");
+            }
+            else if (compChoice.equals("R"))
+            {
+                System.out.println("The computer chose rock.");
+            }
+
+            //Determine a winner
+            //Player winning
+            if(userChoice.equals("R") && compChoice.equals("S"))
+            {
+                System.out.println("the user won!");
+                userWins++;
+            }
+            else if(userChoice.equals("P") && compChoice.equals("R"))
+            {
+                System.out.println("the user won!");
+                userWins++;
+            }
+            else if(userChoice.equals("S") && compChoice.equals("P"))
+            {
+                System.out.println("the user won!");
+                userWins++;
+            }
+
+            //comp winning
+            if(userChoice.equals("S") && compChoice.equals("R"))
+            {
+                System.out.println("the computer won!");
+                compWins++;
+            }
+            else if(userChoice.equals("R") && compChoice.equals("P"))
+            {
+                System.out.println("the computer won!");
+                compWins++;
+            }
+            else if(userChoice.equals("P") && compChoice.equals("S"))
+            {
+                System.out.println("the computer won!");
+                compWins++;
+            }
+
+            //Draw/Tie
+            //Can be condensed to  [if(userChoice.equals(compChoice)){System.out.println("it's a TIE!");}]
+            if(userChoice.equals("S") && compChoice.equals("S"))
+            {
+                System.out.println("it's a TIE!");
+            }
+            else if(userChoice.equals("R") && compChoice.equals("R"))
+            {
+                System.out.println("it's a TIE!");
+            }
+            else if(userChoice.equals("P") && compChoice.equals("P"))
+            {
+                System.out.println("it's a TIE!");
+            }
+            //end loop here
+            System.out.println("User Wins: " + userWins + " Computer wins:" + compWins);
+        }
         
-        //Computer choice
-        num = rand.nextInt(3);
-        
-        if (num == 0)
+        //dETERMINING FINAL WINNER
+        if (userWins > compWins)
         {
-            compChoice = "R";                    
+            System.out.println("\nThe user wins!");
         }
-        else if (num == 1)
+        else if (compWins > userWins)
         {
-            compChoice = "S";                    
+            System.out.println("\nThe comp wins!");
         }
-        else if (num == 2)
+        else
         {
-            compChoice = "P";                    
+            System.out.println("\nIts a tie!!");
         }
-        
-        
-        
-        //print the computer choice
-        
-        if (compChoice.equals("S"))
-        {
-            System.out.println("The computer chose scissors.");
-        }
-        else if (compChoice.equals("P"))
-        {
-            System.out.println("The computer chose paper.");
-        }
-        else if (compChoice.equals("R"))
-        {
-            System.out.println("The computer chose rock.");
-        }
-        
-        //Determine a winner
-        //Player winning
-        if(userChoice.equals("R") && compChoice.equals("S"))
-        {
-            System.out.println("the user won!");
-        }
-        else if(userChoice.equals("P") && compChoice.equals("R"))
-        {
-            System.out.println("the user won!");
-        }
-        else if(userChoice.equals("S") && compChoice.equals("P"))
-        {
-            System.out.println("the user won!");
-        }
-        
-        //comp winning
-        if(userChoice.equals("S") && compChoice.equals("R"))
-        {
-            System.out.println("the computer won!");
-        }
-        else if(userChoice.equals("R") && compChoice.equals("P"))
-        {
-            System.out.println("the computer won!");
-        }
-        else if(userChoice.equals("P") && compChoice.equals("S"))
-        {
-            System.out.println("the computer won!");
-        }
-        
-        //Draw/Tie
-        //Can be condensed to  [if(userChoice.equals(compChoice)){System.out.println("it's a TIE!");}]
-        if(userChoice.equals("S") && compChoice.equals("S"))
-        {
-            System.out.println("it's a TIE!");
-        }
-        else if(userChoice.equals("R") && compChoice.equals("R"))
-        {
-            System.out.println("it's a TIE!");
-        }
-        else if(userChoice.equals("P") && compChoice.equals("P"))
-        {
-            System.out.println("it's a TIE!");
-        }
-        
-        
+            
+               
         
     }
     
