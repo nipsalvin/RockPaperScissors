@@ -11,13 +11,14 @@ import java.util.Scanner;
 
 /**
  *
- * @author Nips
+ * @author Nips Alvin
  */
 public class RockPaperScissors 
 {
 
     /**
      * @param args the command line arguments
+     *
      */
     public static void main(String[] args) 
     {
@@ -31,6 +32,7 @@ public class RockPaperScissors
         int compWins = 0;
         
         System.out.println("Welcome to Rock, Paper, Scissors!!");
+        System.out.println("Are you ready ?");
         
         //repeat this section
         for(int i=0; i<3; i++)
